@@ -1,0 +1,7 @@
+{
+  module: {
+    name: 'masked_view',
+    type: 'har',
+    deviceTypes: ['default'],
+  },
+}

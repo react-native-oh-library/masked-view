@@ -1,0 +1,13 @@
+{
+  "license": "ISC",
+  "types": "",
+  "devDependencies": {
+    "rnoh": "file:../rnoh"
+  },
+  "name": "rnoh-masked-view",
+  "description": "",
+  "main": "index.ets",
+  "type": "module",
+  "version": "0.0.1",
+  "dependencies": {}
+}
