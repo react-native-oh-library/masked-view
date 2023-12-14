@@ -1,10 +1,11 @@
 [
     {
-        "Name": "greenrobot",
+        "Name": "masked-view",
         "License": "MIT License",
-        "Version Number": "8.6.3",
-        "Owner" : "Dylan Vann <dylan@dylanvann.com>"
-        "Upstream URL": "https://github.com/greenrobot/greenDAO",
-        "Description": "greenDAO is a light & fast ORM solution for Android that maps objects to SQLite databases."
+        "License File": "https://github.com/react-native-oh-library/masked-view/blob/harmony/LICENSE",
+        "Version Number": "0.2.9",
+        "Owner" : "Mike Nedosekin <crespo8800@gmail.com>"
+        "Upstream URL": "https://github.com/react-native-oh-library/masked-view",
+        "Description": "React Native MaskedView component"
     }
 ]
