@@ -7,6 +7,9 @@
   "types": "lib/typescript/index.d.ts",
   "react-native": "js/index",
   "source": "js/index",
+  "harmony": {
+    "alias": "@react-native-masked-view/masked-view"
+  },
   "files": [
     "js",
     "lib",
@@ -57,7 +60,8 @@
   },
   "homepage": "https://github.com/react-native-oh-library/masked-view/blob/harmony/README.md",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
