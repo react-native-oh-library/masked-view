@@ -24,7 +24,8 @@
 
 // @flow
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-import type { ViewProps, HostComponent } from 'react-native';
+import type { ViewProps } from 'react-native/Libraries/Components/View/ViewPropTypes';
+import type { HostComponent } from 'react-native';
 
 type NativeProps = $ReadOnly<{|
   ...ViewProps,
