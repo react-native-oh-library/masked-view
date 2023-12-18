@@ -21,11 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+// @flow
 import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
 import type { ViewProps, HostComponent } from 'react-native';
 
-export interface NativeProps extends ViewProps {}
+type NativeProps = $ReadOnly<{|
+  ...ViewProps,
+|}>;
 
-export default codegenNativeComponent<NativeProps>(
-  'RNCMaskedView'
-) as HostComponent<NativeProps>;
+export default (codegenNativeComponent<NativeProps>(
+  'RNCMaskedView',
+): HostComponent<NativeProps>);
