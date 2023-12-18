@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-tpl/masked-view",
-  "version": "0.2.9-0.0.3",
+  "version": "0.2.9-0.0.4",
   "description": "React Native MaskedView component",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -13,21 +13,7 @@
   "files": [
     "js",
     "lib",
-    "android",
-    "ios",
-    "cpp",
-    "harmony/masked_view.har",
-    "harmony/masked_view",
-    "!harmony/masked_view/build",
-    "!harmony/masked_view/oh_modules",
-    "*.podspec",
-    "!lib/typescript/example",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
+    "harmony",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
@@ -40,14 +26,11 @@
     "lint:fix": "npx eslint js --fix", 
     "prepack": "bob build",
     "release": "release-it",
-    "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn install && yarn example pods",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
+    "clean": "del-cli"
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "harmony"
   ],
   "repository": {
     "type": "git",
@@ -62,6 +45,9 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
+  },
+  "dependencies": {
+    "@react-native-masked-view/masked-view": "0.2.9 - 0.3.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
@@ -98,7 +84,6 @@
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
     ]
   },

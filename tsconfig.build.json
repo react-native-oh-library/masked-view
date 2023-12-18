@@ -1,5 +1,5 @@
 
 {
   "extends": "./tsconfig",
-  "exclude": ["harmony","example"]
+  "exclude": ["harmony"]
 }
