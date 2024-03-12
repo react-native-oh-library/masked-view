@@ -9,7 +9,7 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ *a
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
  *
@@ -22,21 +22,23 @@
  * SOFTWARE.
  */
 
-#include "MaskedPackage.h"
-#include "MaskedViewDescriptor.h"
-#include "RNOH/BaseComponentJSIBinder.h"
-#include "RNOH/BaseComponentNapiBinder.h"
+#ifndef HARMONY_MASKEDVIEW_SRC_MAIN_CPP_SHADOWNODES_H
+#define HARMONY_MASKEDVIEW_SRC_MAIN_CPP_SHADOWNODES_H
 
-using namespace rnoh;
-using namespace facebook;
+#include <react/renderer/components/view/ConcreteViewShadowNode.h>
+#include <react/renderer/components/view/ViewShadowNode.h>
+#include <jsi/jsi.h>
 
-std::vector<react::ComponentDescriptorProvider> MaskedPackage::createComponentDescriptorProviders() {
-    return {react::concreteComponentDescriptorProvider<react::MaskedViewDescriptor>()};
-}
-ComponentJSIBinderByString MaskedPackage::createComponentJSIBinderByName() {
-    return {{"RNCMaskedView", std::make_shared<BaseComponentJSIBinder>()}};
-}
+namespace facebook {
+namespace react {
 
-ComponentNapiBinderByString MaskedPackage::createComponentNapiBinderByName() {
-    return {{"RNCMaskedView", std::make_shared<BaseComponentNapiBinder>()}};
-}
+    JSI_EXPORT extern const char MaskedViewName[];
+
+    /*
+     * `ShadowNode` for <RNCMaskedView> component.
+     */
+    using MaskedViewShadowNode = ConcreteViewShadowNode<MaskedViewName, ViewProps, ViewEventEmitter>;
+
+} // namespace react
+} // namespace facebook
+#endif

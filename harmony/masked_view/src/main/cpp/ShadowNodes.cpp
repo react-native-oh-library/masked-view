@@ -22,20 +22,12 @@
  * SOFTWARE.
  */
 
-#pragma once
-
-#include <react/renderer/core/ConcreteComponentDescriptor.h>
 #include "ShadowNodes.h"
 
 namespace facebook {
 namespace react {
 
-class MaskedViewDescriptor final
-    : public ConcreteComponentDescriptor<MaskedViewShadowNode> {
-  public:
-    MaskedViewDescriptor(ComponentDescriptorParameters const &parameters)
-        : ConcreteComponentDescriptor(parameters) {}
-};
+    extern const char MaskedViewName[] = "RNCMaskedView";
 
 } // namespace react
 } // namespace facebook
