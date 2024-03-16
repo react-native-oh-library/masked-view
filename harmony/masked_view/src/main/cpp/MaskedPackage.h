@@ -34,9 +34,9 @@ namespace rnoh {
     public:
         using ComponentInstanceFactoryDelegate::ComponentInstanceFactoryDelegate;
 
-        ComponentInstance::Shared create(ComponentInstanceFactoryContext ctx) override {
+        ComponentInstance::Shared create(ComponentInstance::Context ctx) override {
             if (ctx.componentName == "RNCMaskedView") {
-                return std::make_shared<MaskedComponentInstance>(m_ctx, ctx.tag);
+                return std::make_shared<MaskedComponentInstance>(std::move(ctx));
             }
             return nullptr;
         }
@@ -47,7 +47,7 @@ namespace rnoh {
         MaskedPackage(Package::Context ctx) : Package(ctx) {}
 
         ComponentInstanceFactoryDelegate::Shared createComponentInstanceFactoryDelegate() override {
-            return std::make_shared<MaskedPackageComponentInstanceFactoryDelegate>(m_ctx);
+            return std::make_shared<MaskedPackageComponentInstanceFactoryDelegate>();
         }
 
         std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override {

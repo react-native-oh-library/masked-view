@@ -10,7 +10,7 @@ namespace rnoh {
         StackNode m_stackNode;
 
     public:
-        MaskedComponentInstance(Context context, facebook::react::Tag tag);
+        MaskedComponentInstance(Context context);
 
         void insertChild(ComponentInstance::Shared childComponentInstance, std::size_t index) override;
 

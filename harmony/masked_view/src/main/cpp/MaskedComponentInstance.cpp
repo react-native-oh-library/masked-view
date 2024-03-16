@@ -1,8 +1,8 @@
 #include "MaskedComponentInstance.h"
 
 namespace rnoh {
-    MaskedComponentInstance::MaskedComponentInstance(Context context, facebook::react::Tag tag)
-        : CppComponentInstance(std::move(context), tag) {}
+    MaskedComponentInstance::MaskedComponentInstance(Context context)
+        : CppComponentInstance(std::move(context)) {}
 
     void MaskedComponentInstance::insertChild(ComponentInstance::Shared childComponentInstance, std::size_t index) {
         m_stackNode.insertChild(childComponentInstance->getLocalRootArkUINode(), index);
