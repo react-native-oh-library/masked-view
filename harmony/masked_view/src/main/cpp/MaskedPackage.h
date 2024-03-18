@@ -47,7 +47,7 @@ namespace rnoh {
         MaskedPackage(Package::Context ctx) : Package(ctx) {}
 
         ComponentInstanceFactoryDelegate::Shared createComponentInstanceFactoryDelegate() override {
-            return std::make_shared<MaskedPackageComponentInstanceFactoryDelegate>();
+            return std::make_shared<MaskedPackageComponentInstanceFactoryDelegate>(m_ctx);
         }
 
         std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override {
