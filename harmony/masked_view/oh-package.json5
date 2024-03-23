@@ -7,7 +7,7 @@
   "description": "",
   "main": "index.ets",
   "type": "module",
-  "version": "0.0.3",
+  "version": "0.2.3",
   "dependencies": {
     "rnoh": "file:../rnoh"
   }
