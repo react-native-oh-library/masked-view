@@ -3,19 +3,18 @@
 
 #include "RNOH/CppComponentInstance.h"
 #include "RNOH/arkui/StackNode.h"
-#include "ShadowNodes.h"
 
 namespace rnoh {
-    class MaskedComponentInstance : public CppComponentInstance<facebook::react::MaskedViewShadowNode> {
+    class MaskedComponentInstance : public CppComponentInstance {
     private:
         StackNode m_stackNode;
 
     public:
         MaskedComponentInstance(Context context);
 
-        void onChildInserted(ComponentInstance::Shared const &childComponentInstance, std::size_t index) override;
+        void insertChild(ComponentInstance::Shared childComponentInstance, std::size_t index) override;
 
-        void onChildRemoved(ComponentInstance::Shared const &childComponentInstance) override;
+        void removeChild(ComponentInstance::Shared childComponentInstance) override;
     
         StackNode &getLocalRootArkUINode() override;
     };
