@@ -2,13 +2,13 @@
 #define HARMONY_MASKEDCOMPONENTINSTANCE_H
 
 #include "RNOH/CppComponentInstance.h"
-#include "RNOH/arkui/StackNode.h"
 #include "ShadowNodes.h"
+#include "MaskedViewStackNode.h"
 
 namespace rnoh {
     class MaskedComponentInstance : public CppComponentInstance<facebook::react::MaskedViewShadowNode> {
     private:
-        StackNode m_stackNode;
+        MaskedViewStackNode m_stackNode;
 
     public:
         MaskedComponentInstance(Context context);
@@ -16,8 +16,8 @@ namespace rnoh {
         void onChildInserted(ComponentInstance::Shared const &childComponentInstance, std::size_t index) override;
 
         void onChildRemoved(ComponentInstance::Shared const &childComponentInstance) override;
-    
-        StackNode &getLocalRootArkUINode() override;
+
+        MaskedViewStackNode &getLocalRootArkUINode() override;
     };
 } // namespace rnoh
 

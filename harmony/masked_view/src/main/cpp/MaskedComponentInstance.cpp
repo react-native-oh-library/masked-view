@@ -1,10 +1,10 @@
 #include "MaskedComponentInstance.h"
 
 namespace rnoh {
-    MaskedComponentInstance::MaskedComponentInstance(Context context)
-        : CppComponentInstance(std::move(context)) {}
+    MaskedComponentInstance::MaskedComponentInstance(Context context) : CppComponentInstance(std::move(context)) {}
 
-    void MaskedComponentInstance::onChildInserted(ComponentInstance::Shared const &childComponentInstance, std::size_t index) {
+    void MaskedComponentInstance::onChildInserted(ComponentInstance::Shared const &childComponentInstance,
+                                                  std::size_t index) {
         m_stackNode.insertChild(childComponentInstance->getLocalRootArkUINode(), index);
     }
 
@@ -12,5 +12,5 @@ namespace rnoh {
         m_stackNode.removeChild(childComponentInstance->getLocalRootArkUINode());
     };
 
-    StackNode &MaskedComponentInstance::getLocalRootArkUINode() { return m_stackNode; }
+    MaskedViewStackNode &MaskedComponentInstance::getLocalRootArkUINode() { return m_stackNode; }
 } // namespace rnoh
