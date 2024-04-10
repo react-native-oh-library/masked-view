@@ -30,7 +30,7 @@ import {
   RNViewBase,
   ViewBaseProps,
   ViewDynamicProps
-} from 'rnoh'
+} from '@rnoh/react-native-openharmony'
 import Logger from './Logger'
 
 export const MASKED_VIEW_TYPE: string = "RNCMaskedView"
