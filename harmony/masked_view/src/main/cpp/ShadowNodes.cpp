@@ -22,21 +22,12 @@
  * SOFTWARE.
  */
 
-#include "MaskedPackage.h"
-#include "MaskedViewDescriptor.h"
-#include "RNOH/BaseComponentJSIBinder.h"
-#include "RNOH/BaseComponentNapiBinder.h"
+#include "ShadowNodes.h"
 
-using namespace rnoh;
-using namespace facebook;
+namespace facebook {
+namespace react {
 
-std::vector<react::ComponentDescriptorProvider> MaskedPackage::createComponentDescriptorProviders() {
-    return {react::concreteComponentDescriptorProvider<react::MaskedViewDescriptor>()};
-}
-ComponentJSIBinderByString MaskedPackage::createComponentJSIBinderByName() {
-    return {{"RNCMaskedView", std::make_shared<BaseComponentJSIBinder>()}};
-}
+    extern const char MaskedViewName[] = "RNCMaskedView";
 
-ComponentNapiBinderByString MaskedPackage::createComponentNapiBinderByName() {
-    return {{"RNCMaskedView", std::make_shared<BaseComponentNapiBinder>()}};
-}
+} // namespace react
+} // namespace facebook

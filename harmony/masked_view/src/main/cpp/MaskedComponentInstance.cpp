@@ -21,21 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+ 
+#include "MaskedComponentInstance.h"
 
-#pragma once
+namespace rnoh {
+    MaskedComponentInstance::MaskedComponentInstance(Context context) : CppComponentInstance(std::move(context)) {}
 
-#include <react/renderer/core/ConcreteComponentDescriptor.h>
-#include "ShadowNodes.h"
+    void MaskedComponentInstance::onChildInserted(ComponentInstance::Shared const &childComponentInstance,
+                                                  std::size_t index) {
+        m_stackNode.insertChild(childComponentInstance->getLocalRootArkUINode(), index);
+    }
 
-namespace facebook {
-namespace react {
+    void MaskedComponentInstance::onChildRemoved(ComponentInstance::Shared const &childComponentInstance) {
+        m_stackNode.removeChild(childComponentInstance->getLocalRootArkUINode());
+    };
 
-class MaskedViewDescriptor final
-    : public ConcreteComponentDescriptor<MaskedViewShadowNode> {
-  public:
-    MaskedViewDescriptor(ComponentDescriptorParameters const &parameters)
-        : ConcreteComponentDescriptor(parameters) {}
-};
-
-} // namespace react
-} // namespace facebook
+    MaskedViewStackNode &MaskedComponentInstance::getLocalRootArkUINode() { return m_stackNode; }
+} // namespace rnoh

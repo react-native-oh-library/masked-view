@@ -22,20 +22,23 @@
  * SOFTWARE.
  */
 
-#pragma once
+#ifndef HARMONY_MASKEDVIEW_SRC_MAIN_CPP_SHADOWNODES_H
+#define HARMONY_MASKEDVIEW_SRC_MAIN_CPP_SHADOWNODES_H
 
-#include <react/renderer/core/ConcreteComponentDescriptor.h>
-#include "ShadowNodes.h"
+#include <react/renderer/components/view/ConcreteViewShadowNode.h>
+#include <react/renderer/components/view/ViewShadowNode.h>
+#include <jsi/jsi.h>
 
 namespace facebook {
 namespace react {
 
-class MaskedViewDescriptor final
-    : public ConcreteComponentDescriptor<MaskedViewShadowNode> {
-  public:
-    MaskedViewDescriptor(ComponentDescriptorParameters const &parameters)
-        : ConcreteComponentDescriptor(parameters) {}
-};
+    JSI_EXPORT extern const char MaskedViewName[];
+
+    /*
+     * `ShadowNode` for <RNCMaskedView> component.
+     */
+    using MaskedViewShadowNode = ConcreteViewShadowNode<MaskedViewName, ViewProps, ViewEventEmitter>;
 
 } // namespace react
 } // namespace facebook
+#endif

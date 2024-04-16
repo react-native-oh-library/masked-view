@@ -22,18 +22,44 @@
  * SOFTWARE.
  */
 
+#include "MaskedViewDescriptor.h"
+#include "RNOH/BaseComponentJSIBinder.h"
+#include "RNOH/BaseComponentNapiBinder.h"
 #include "RNOH/Package.h"
+#include "MaskedComponentInstance.h"
 
 namespace rnoh {
 
-class MaskedPackage : public Package {
-public:
-    MaskedPackage(Package::Context ctx) : Package(ctx) {}
+    class MaskedPackageComponentInstanceFactoryDelegate : public ComponentInstanceFactoryDelegate {
+    public:
+        using ComponentInstanceFactoryDelegate::ComponentInstanceFactoryDelegate;
 
-    std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override;
+        ComponentInstance::Shared create(ComponentInstance::Context ctx) override {
+            if (ctx.componentName == "RNCMaskedView") {
+                return std::make_shared<MaskedComponentInstance>(std::move(ctx));
+            }
+            return nullptr;
+        }
+    };
 
-    ComponentJSIBinderByString createComponentJSIBinderByName() override;
+    class MaskedPackage : public Package {
+    public:
+        MaskedPackage(Package::Context ctx) : Package(ctx) {}
 
-    ComponentNapiBinderByString createComponentNapiBinderByName() override; 
-};
+        ComponentInstanceFactoryDelegate::Shared createComponentInstanceFactoryDelegate() override {
+            return std::make_shared<MaskedPackageComponentInstanceFactoryDelegate>();
+        }
+
+        std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override {
+            return {facebook::react::concreteComponentDescriptorProvider<facebook::react::MaskedViewDescriptor>()};
+        }
+
+        ComponentJSIBinderByString createComponentJSIBinderByName() override {
+            return {{"RNCMaskedView", std::make_shared<BaseComponentJSIBinder>()}};
+        }
+
+        ComponentNapiBinderByString createComponentNapiBinderByName() override {
+            return {{"RNCMaskedView", std::make_shared<BaseComponentNapiBinder>()}};
+        }
+    };
 } // namespace rnoh

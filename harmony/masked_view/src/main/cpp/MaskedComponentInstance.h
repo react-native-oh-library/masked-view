@@ -21,21 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+ 
+#ifndef HARMONY_MASKEDCOMPONENTINSTANCE_H
+#define HARMONY_MASKEDCOMPONENTINSTANCE_H
 
-#pragma once
-
-#include <react/renderer/core/ConcreteComponentDescriptor.h>
+#include "RNOH/CppComponentInstance.h"
 #include "ShadowNodes.h"
+#include "MaskedViewStackNode.h"
 
-namespace facebook {
-namespace react {
+namespace rnoh {
+    class MaskedComponentInstance : public CppComponentInstance<facebook::react::MaskedViewShadowNode> {
+    private:
+        MaskedViewStackNode m_stackNode;
 
-class MaskedViewDescriptor final
-    : public ConcreteComponentDescriptor<MaskedViewShadowNode> {
-  public:
-    MaskedViewDescriptor(ComponentDescriptorParameters const &parameters)
-        : ConcreteComponentDescriptor(parameters) {}
-};
+    public:
+        MaskedComponentInstance(Context context);
 
-} // namespace react
-} // namespace facebook
+        void onChildInserted(ComponentInstance::Shared const &childComponentInstance, std::size_t index) override;
+
+        void onChildRemoved(ComponentInstance::Shared const &childComponentInstance) override;
+
+        MaskedViewStackNode &getLocalRootArkUINode() override;
+    };
+} // namespace rnoh
+
+#endif // HARMONY_MASKEDCOMPONENTINSTANCE_H

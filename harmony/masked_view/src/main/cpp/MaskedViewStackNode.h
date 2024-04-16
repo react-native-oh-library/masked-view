@@ -21,21 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
+ 
 #pragma once
 
-#include <react/renderer/core/ConcreteComponentDescriptor.h>
-#include "ShadowNodes.h"
+#include "RNOH/arkui/ArkUINode.h"
+#include "RNOH/arkui/StackNode.h"
 
-namespace facebook {
-namespace react {
+namespace rnoh {
 
-class MaskedViewDescriptor final
-    : public ConcreteComponentDescriptor<MaskedViewShadowNode> {
-  public:
-    MaskedViewDescriptor(ComponentDescriptorParameters const &parameters)
-        : ConcreteComponentDescriptor(parameters) {}
-};
+    class MaskedViewStackNode : public ArkUINode {
+    public:
+        MaskedViewStackNode();
 
-} // namespace react
-} // namespace facebook
+        void insertChild(ArkUINode &child, std::size_t index);
+        void removeChild(ArkUINode &child);
+        void setBlendMode(int32_t blendMode, ArkUI_NodeHandle node);
+    };
+} // namespace rnoh
