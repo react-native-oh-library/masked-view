@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "@react-native-masked-view/masked-view",
+        "License": "MIT License",
+        "License File": "https://github.com/react-native-masked-view/masked-view/blob/master/LICENSE",
+        "Version Number": "0.2.9",
+        "Owner" : "xiafeng@huawei.com"
+        "Upstream URL": "https://github.com/react-native-masked-view/masked-view",
+        "Description": "React Native MaskedView component"
+    }
+]
