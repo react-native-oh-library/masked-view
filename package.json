@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-tpl/masked-view",
-  "version": "0.2.9-0.2.2",
+  "version": "0.2.9-0.2.3-rc.1",
   "description": "React Native MaskedView component",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",

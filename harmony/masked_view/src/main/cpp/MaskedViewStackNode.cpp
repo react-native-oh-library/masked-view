@@ -35,15 +35,15 @@ namespace rnoh {
         maybeThrow(NativeNodeApi::getInstance()->insertChildAt(m_nodeHandle, child.getArkUINodeHandle(), index));
         if (index == 0) {
             setBlendMode(ARKUI_BLEND_MODE_SRC_OVER, getArkUINodeHandle());
-        } else {
+        } else if (index == 1){
             setBlendMode(ARKUI_BLEND_MODE_SRC_IN, child.getArkUINodeHandle());
         }
     }
 
     void MaskedViewStackNode::removeChild(ArkUINode &child) {
         maybeThrow(NativeNodeApi::getInstance()->removeChild(m_nodeHandle, child.getArkUINodeHandle()));
-        setBlendMode(ARKUI_BLEND_MODE_NONE, getArkUINodeHandle());
-        setBlendMode(ARKUI_BLEND_MODE_NONE, child.getArkUINodeHandle());
+        // setBlendMode(ARKUI_BLEND_MODE_NONE, getArkUINodeHandle());
+        // setBlendMode(ARKUI_BLEND_MODE_NONE, child.getArkUINodeHandle());
     }
 
     void MaskedViewStackNode::setBlendMode(int32_t blendMode, ArkUI_NodeHandle node) {
