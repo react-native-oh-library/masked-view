@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (C) 2021 Huawei Device Co., Ltd.
+ * Copyright (C) 2023 Huawei Device Co., Ltd.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -13,7 +13,7 @@
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANT KIND, EXPRESS OR
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -21,6 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import codegenNativeComponent from 'react-native/Libraries/Utilities/codegenNativeComponent';
-export default codegenNativeComponent('RNCMaskedView');
-//# sourceMappingURL=RNCMaskedViewNativeComponent.js.map
+ 
+#pragma once
+
+#include "RNOH/arkui/ArkUINode.h"
+#include "RNOH/arkui/StackNode.h"
+
+namespace rnoh {
+
+    class MaskedViewStackNode : public ArkUINode {
+    public:
+        MaskedViewStackNode();
+
+        void insertChild(ArkUINode &child, std::size_t index);
+        void removeChild(ArkUINode &child);
+        void setBlendMode(int32_t blendMode, ArkUI_NodeHandle node);
+    };
+} // namespace rnoh

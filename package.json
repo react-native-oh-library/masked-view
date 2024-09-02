@@ -1,53 +1,30 @@
 {
   "name": "@react-native-oh-tpl/masked-view",
-  "version": "0.2.9-0.0.3",
+  "version": "0.2.9-0.2.2",
   "description": "React Native MaskedView component",
-  "main": "lib/commonjs/index",
-  "module": "lib/module/index",
-  "types": "lib/typescript/index.d.ts",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "./types/index.d.ts",
   "react-native": "js/index",
-  "source": "js/index",
   "harmony": {
     "alias": "@react-native-masked-view/masked-view"
   },
   "files": [
     "js",
     "lib",
-    "android",
-    "ios",
-    "cpp",
-    "harmony/masked_view.har",
-    "harmony/masked_view",
-    "!harmony/masked_view/build",
-    "!harmony/masked_view/oh_modules",
-    "*.podspec",
-    "!lib/typescript/example",
-    "!ios/build",
-    "!android/build",
-    "!android/gradle",
-    "!android/gradlew",
-    "!android/gradlew.bat",
-    "!android/local.properties",
+    "types",
+    "harmony",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__",
     "!**/.*"
   ],
-  "scripts": {
-    "test": "jest",
-    "typecheck": "tsc --noEmit",
-    "lint": "npx eslint js",  
-    "lint:fix": "npx eslint js --fix", 
-    "prepack": "bob build",
-    "release": "release-it",
-    "example": "yarn --cwd example",
-    "bootstrap": "yarn example && yarn install && yarn example pods",
-    "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build"
-  },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "react native",
+    "masked-view",
+    "masked view",
+    "harmony"
   ],
   "repository": {
     "type": "git",
@@ -55,122 +32,52 @@
   },
   "author": "Mike Nedosekin <crespo8800@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/react-native-masked-view/masked-view/issues"
-  },
-  "homepage": "https://github.com/react-native-oh-library/masked-view/blob/harmony/README.md",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "devDependencies": {
-    "@commitlint/config-conventional": "^17.0.2",
-    "@evilmartians/lefthook": "^1.2.2",
-    "@react-native-community/eslint-config": "^3.0.2",
-    "@release-it/conventional-changelog": "^5.0.0",
-    "@types/jest": "^28.1.2",
-    "@types/react": "~17.0.21",
-    "@types/react-native": "0.70.0",
-    "commitlint": "^17.0.2",
-    "del-cli": "^5.0.0",
-    "eslint": "^8.4.1",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^28.1.1",
-    "pod-install": "^0.1.0",
-    "prettier": "^2.0.5",
-    "react": "18.2.0",
-    "react-native": "0.71.7",
-    "react-native-builder-bob": "^0.20.4",
-    "typescript": "^4.5.2"
+  "dependencies": {
+    "@react-native-masked-view/masked-view": "0.2.9 - 0.3.1"
   },
-  "resolutions": {
-    "@types/react": "17.0.21"
+  "homepage": "https://github.com/react-native-masked-view/masked-view#readme",
+  "scripts": {
+    "prepare": "bob build",
+    "build": "bob build",
+    "test:flow": "flow check",
+    "test:js": "echo 0",
+    "test:lint": "eslint ./",
+    "test:typescript": "tsc -noEmit",
+    "test:prettier": "prettier --check './**/*.js'"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
-  "engines": {
-    "node": ">= 16.0.0"
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/react-native": "^0.69.2",
+    "eslint": "^7.20.0",
+    "flow-bin": "^0.218.0",
+    "prettier": "^2.2.1",
+    "react-native": "0.72.5",
+    "react-native-builder-bob": "^0.18.1",
+    "react-native-test-app": "^2.5.25",
+    "typescript": "4.8.4"
   },
-  "packageManager": "^yarn@1.22.15",
-  "jest": {
-    "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/node_modules",
-      "<rootDir>/lib/"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "release-it": {
-    "git": {
-      "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
-    },
-    "npm": {
-      "publish": true
-    },
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "preset": "angular"
-      }
-    }
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native-community",
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
+  "bugs": {
+    "url": "https://github.com/react-native-masked-view/masked-view/issues"
   },
   "react-native-builder-bob": {
     "source": "js",
     "output": "lib",
     "targets": [
-      "commonjs",
-      "module",
       [
-        "typescript",
+        "commonjs",
         {
-          "project": "tsconfig.build.json"
+          "flow": true
         }
-      ]
+      ],
+      "module"
     ]
-  },
-  "codegenConfig": {
-    "name": "RNCMaskedView",
-    "type": "components",
-    "jsSrcsDir": "js"
   }
 }
